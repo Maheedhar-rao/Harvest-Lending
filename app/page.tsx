@@ -20,17 +20,30 @@ import {
   Clock,
   Shield,
   Star,
-  Users,
   TrendingUp,
   ArrowRight,
   Phone,
   Mail,
   Calculator,
-  Globe,
   Zap,
+  Landmark,
+  Briefcase,
+  CreditCard,
+  FileText,
+  BarChart3,
+  Building2,
+  Award,
+  Target,
+  FileSearch,
+  Wrench,
+  ClipboardCheck,
+  Users,
 } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, Fragment } from "react"
 import Image from "next/image"
+import { SiteFooter } from "@/components/site-footer"
+import { FundingNav } from "@/components/funding-nav"
+import { CreditNav } from "@/components/credit-nav"
 
 export default function HarvestLendingPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -91,106 +104,109 @@ export default function HarvestLendingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-slate-800 text-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-slate-800/95">
+      <header className="bg-amber-900 text-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-amber-900/95">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div
-            className={`flex items-center space-x-3 transition-all duration-700 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
+          <a
+            href="#home"
+            className={`flex items-center space-x-3 transition-all duration-700 cursor-pointer ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"}`}
           >
             <Image
               src="/images/harvest-logo.png"
               alt="Harvest Lending Logo"
-              width={40}
-              height={40}
+              width={56}
+              height={56}
               className="rounded-lg hover:animate-bounce transition-all duration-300"
             />
-            <h1 className="text-2xl font-black font-[family-name:var(--font-montserrat)] hover:text-blue-300 transition-colors duration-300">
+            <h1 className="text-2xl font-black font-[family-name:var(--font-montserrat)] hover:text-amber-300 transition-colors duration-300">
               Harvest Lending
             </h1>
-          </div>
+          </a>
+          <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer" className="md:hidden">
+            <Button size="sm" className="bg-amber-600 hover:bg-amber-500 text-white font-semibold">
+              Apply
+            </Button>
+          </a>
           <nav
             className={`hidden md:flex items-center space-x-6 transition-all duration-700 delay-300 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
           >
+            <FundingNav />
+            <CreditNav />
             <a
-              href="#services"
-              className="font-[family-name:var(--font-open-sans)] hover:text-blue-300 transition-all duration-300 hover:scale-110 relative group"
-            >
-              Services
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a
-              href="#about"
-              className="font-[family-name:var(--font-open-sans)] hover:text-blue-300 transition-all duration-300 hover:scale-110 relative group"
+              href="/about"
+              className="font-[family-name:var(--font-open-sans)] hover:text-amber-300 transition-all duration-300 hover:scale-110 relative group"
             >
               About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
               href="#testimonials"
-              className="font-[family-name:var(--font-open-sans)] hover:text-blue-300 transition-all duration-300 hover:scale-110 relative group"
+              className="font-[family-name:var(--font-open-sans)] hover:text-amber-300 transition-all duration-300 hover:scale-110 relative group"
             >
               Reviews
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#contact"
-              className="font-[family-name:var(--font-open-sans)] hover:text-blue-300 transition-all duration-300 hover:scale-110 relative group"
+              href="/contact"
+              className="font-[family-name:var(--font-open-sans)] hover:text-amber-300 transition-all duration-300 hover:scale-110 relative group"
             >
               Contact
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <Button
-              variant="secondary"
-              className="bg-blue-600 hover:bg-blue-500 text-white hover:scale-110 hover:rotate-2 transition-all duration-300 group shadow-lg hover:shadow-2xl animate-pulse-slow"
-            >
-              Apply Now
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 group-hover:scale-125 transition-transform duration-300" />
-            </Button>
+            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="secondary"
+                className="bg-amber-600 hover:bg-amber-500 text-white hover:scale-110 hover:rotate-2 transition-all duration-300 group shadow-lg hover:shadow-2xl animate-pulse-slow"
+              >
+                Apply Now
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 group-hover:scale-125 transition-transform duration-300" />
+              </Button>
+            </a>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 to-blue-50 py-20 lg:py-32 overflow-hidden">
+      <section id="home" className="relative bg-gradient-to-br from-amber-50 to-yellow-100 py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full animate-bounce-slow"
+            className="absolute top-20 left-10 w-20 h-20 bg-amber-400/20 rounded-full animate-bounce-slow"
             style={{ transform: `translateY(${scrollY * 0.1}px)` }}
           ></div>
           <div
-            className="absolute top-40 right-20 w-32 h-32 bg-slate-300/10 rounded-full animate-spin-slow"
+            className="absolute top-40 right-20 w-32 h-32 bg-amber-300/10 rounded-full animate-spin-slow"
             style={{ animationDelay: "1s", animationDuration: "8s", transform: `translateY(${scrollY * 0.15}px)` }}
           ></div>
           <div
-            className="absolute bottom-20 left-1/4 w-16 h-16 bg-blue-500/20 rounded-full animate-pulse-slow"
+            className="absolute bottom-20 left-1/4 w-16 h-16 bg-amber-500/20 rounded-full animate-pulse-slow"
             style={{ animationDelay: "2s", transform: `translateY(${scrollY * 0.2}px)` }}
           ></div>
           <div className="absolute top-1/3 left-1/3 animate-float-complex">
-            <DollarSign className="h-8 w-8 text-blue-400/30 animate-wiggle" />
+            <DollarSign className="h-8 w-8 text-amber-400/30 animate-wiggle" />
           </div>
           <div className="absolute bottom-1/3 right-1/3 animate-float-complex" style={{ animationDelay: "1.5s" }}>
-            <TrendingUp className="h-6 w-6 text-slate-500/30 animate-wiggle" />
+            <TrendingUp className="h-6 w-6 text-stone-500/30 animate-wiggle" />
           </div>
           <div className="absolute top-1/2 right-10 animate-float-complex" style={{ animationDelay: "3s" }}>
-            <CheckCircle className="h-10 w-10 text-blue-300/20 animate-spin-slow" />
+            <CheckCircle className="h-10 w-10 text-amber-300/20 animate-spin-slow" />
           </div>
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
           <Badge
-            className={`mb-6 bg-blue-600 text-white border-blue-400/20 transition-all duration-1000 delay-500 animate-bounce-gentle hover:scale-110 hover:rotate-2 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`mb-6 bg-amber-600 text-white border-amber-400/20 transition-all duration-1000 delay-500 animate-bounce-gentle hover:scale-110 hover:rotate-2 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
             ✨ Transforming small business funding Since 2015
           </Badge>
           <h2
-            className={`text-4xl lg:text-6xl font-black font-[family-name:var(--font-montserrat)] text-gray-800 mb-6 text-balance transition-all duration-1000 delay-700 hover:scale-105 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`text-4xl lg:text-6xl font-black font-[family-name:var(--font-montserrat)] text-stone-800 mb-6 text-balance transition-all duration-1000 delay-700 hover:scale-105 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            Developing relationships and solutions for the{" "}
-            <span className="text-blue-600 animate-gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-pulse-slow">
-              modern-day business owner
+            Harvest the Power of{" "}
+            <span className="text-amber-600 animate-gradient-text bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 bg-clip-text text-transparent animate-pulse-slow">
+              Lending
             </span>
           </h2>
           <p
-            className={`text-xl text-gray-600 font-[family-name:var(--font-open-sans)] mb-8 max-w-3xl mx-auto text-pretty transition-all duration-1000 delay-900 hover:text-gray-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`text-xl text-stone-600 font-[family-name:var(--font-open-sans)] mb-8 max-w-3xl mx-auto text-pretty transition-all duration-1000 delay-900 hover:text-stone-700 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
             At Harvest Lending, Our mission is to empower business owners to achieve their unique financial goals by
             providing comprehensive, tailored financial solutions. We strive to be the trusted partner that navigates
@@ -199,13 +215,15 @@ export default function HarvestLendingPage() {
           <div
             className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-1100 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            <Button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-500 text-white font-semibold hover:scale-110 hover:rotate-1 transition-all duration-300 group shadow-lg hover:shadow-2xl animate-pulse-gentle"
-            >
-              Get Pre-Approved
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 group-hover:scale-125 transition-transform duration-300" />
-            </Button>
+            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-amber-600 hover:bg-amber-500 text-white font-semibold hover:scale-110 hover:rotate-1 transition-all duration-300 group shadow-lg hover:shadow-2xl animate-pulse-gentle"
+              >
+                Get Pre-Approved
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 group-hover:scale-125 transition-transform duration-300" />
+              </Button>
+            </a>
             <Dialog
               open={isDialogOpen}
               onOpenChange={(open) => {
@@ -217,7 +235,7 @@ export default function HarvestLendingPage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white bg-transparent hover:scale-110 hover:rotate-1 transition-all duration-300 hover:shadow-xl"
+                  className="border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white bg-transparent hover:scale-110 hover:rotate-1 transition-all duration-300 hover:shadow-xl"
                 >
                   <Calculator className="mr-2 h-4 w-4 animate-wiggle" />
                   Calculate Rates
@@ -225,18 +243,18 @@ export default function HarvestLendingPage() {
               </DialogTrigger>
               <DialogContent className="sm:max-w-md">
                 <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                    <Calculator className="h-6 w-6 text-blue-600" />
+                  <DialogTitle className="text-2xl font-bold text-stone-800 flex items-center gap-2">
+                    <Calculator className="h-6 w-6 text-amber-600" />
                     Calculate Your Rate
                   </DialogTitle>
-                  <DialogDescription className="text-gray-600">
+                  <DialogDescription className="text-stone-600">
                     Get an instant estimate of your funding potential based on your monthly revenue.
                   </DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-4 py-4">
                   <div className="space-y-2">
-                    <Label htmlFor="monthlyRevenue" className="text-sm font-medium text-gray-700">
+                    <Label htmlFor="monthlyRevenue" className="text-sm font-medium text-stone-700">
                       Monthly Revenue ($)
                     </Label>
                     <Input
@@ -245,16 +263,16 @@ export default function HarvestLendingPage() {
                       placeholder="Enter your monthly revenue"
                       value={formData.monthlyRevenue}
                       onChange={(e) => handleInputChange("monthlyRevenue", e.target.value)}
-                      className="border-gray-300 focus:border-blue-500"
+                      className="border-stone-300 focus:border-amber-500"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="state" className="text-sm font-medium text-gray-700">
+                    <Label htmlFor="state" className="text-sm font-medium text-stone-700">
                       State
                     </Label>
                     <Select value={formData.state} onValueChange={(value) => handleInputChange("state", value)}>
-                      <SelectTrigger className="border-gray-300 focus:border-blue-500">
+                      <SelectTrigger className="border-stone-300 focus:border-amber-500">
                         <SelectValue placeholder="Select your state" />
                       </SelectTrigger>
                       <SelectContent>
@@ -313,7 +331,7 @@ export default function HarvestLendingPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                    <Label htmlFor="email" className="text-sm font-medium text-stone-700">
                       Email Address
                     </Label>
                     <Input
@@ -322,12 +340,12 @@ export default function HarvestLendingPage() {
                       placeholder="Enter your email"
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
-                      className="border-gray-300 focus:border-blue-500"
+                      className="border-stone-300 focus:border-amber-500"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="mobile" className="text-sm font-medium text-gray-700">
+                    <Label htmlFor="mobile" className="text-sm font-medium text-stone-700">
                       Mobile Number
                     </Label>
                     <Input
@@ -336,13 +354,13 @@ export default function HarvestLendingPage() {
                       placeholder="Enter your mobile number"
                       value={formData.mobile}
                       onChange={(e) => handleInputChange("mobile", e.target.value)}
-                      className="border-gray-300 focus:border-blue-500"
+                      className="border-stone-300 focus:border-amber-500"
                     />
                   </div>
 
                   <Button
                     onClick={calculateMyRate}
-                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 hover:scale-105 transition-all duration-300"
+                    className="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-3 hover:scale-105 transition-all duration-300"
                     disabled={!formData.monthlyRevenue || !formData.state || !formData.email || !formData.mobile}
                   >
                     <Calculator className="mr-2 h-4 w-4" />
@@ -350,24 +368,26 @@ export default function HarvestLendingPage() {
                   </Button>
 
                   {calculatedRate && (
-                    <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                      <h4 className="text-lg font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                    <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                      <h4 className="text-lg font-semibold text-amber-800 mb-2 flex items-center gap-2">
                         <CheckCircle className="h-5 w-5" />
                         Your Estimated Funding Range
                       </h4>
                       <div className="text-center">
-                        <div className="text-3xl font-bold text-blue-600 mb-2">
+                        <div className="text-3xl font-bold text-amber-600 mb-2">
                           ${calculatedRate.min.toLocaleString()} - ${calculatedRate.max.toLocaleString()}
                         </div>
-                        <p className="text-sm text-gray-600 mb-4">Based on 100% to 150% of your monthly revenue</p>
-                        <Button
-                          size="sm"
-                          className="bg-blue-600 hover:bg-blue-500 text-white"
-                          onClick={() => setIsDialogOpen(false)}
-                        >
-                          Apply Now
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
+                        <p className="text-sm text-stone-600 mb-4">Based on 100% to 150% of your monthly revenue</p>
+                        <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+                          <Button
+                            size="sm"
+                            className="bg-amber-600 hover:bg-amber-500 text-white"
+                            onClick={() => setIsDialogOpen(false)}
+                          >
+                            Apply Now
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
+                        </a>
                       </div>
                     </div>
                   )}
@@ -378,12 +398,12 @@ export default function HarvestLendingPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-800 text-white relative overflow-hidden">
+      <section className="py-16 bg-amber-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 animate-gradient-shift"></div>
-          <div className="absolute top-10 right-10 w-24 h-24 bg-blue-400/10 rounded-full animate-float-slow"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900 animate-gradient-shift"></div>
+          <div className="absolute top-10 right-10 w-24 h-24 bg-amber-400/10 rounded-full animate-float-slow"></div>
           <div
-            className="absolute bottom-10 left-10 w-32 h-32 bg-blue-500/10 rounded-full animate-float-slow"
+            className="absolute bottom-10 left-10 w-32 h-32 bg-amber-500/10 rounded-full animate-float-slow"
             style={{ animationDelay: "2s" }}
           ></div>
         </div>
@@ -391,15 +411,15 @@ export default function HarvestLendingPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="animate-fade-in-up hover:scale-110 transition-all duration-500 cursor-pointer">
-              <div className="text-4xl font-bold mb-2 animate-number-count text-blue-400">95%</div>
-              <div className="text-slate-200 hover:text-white transition-colors duration-300">Client Success Rate</div>
+              <div className="text-4xl font-bold mb-2 animate-number-count text-amber-400">95%</div>
+              <div className="text-amber-100 hover:text-white transition-colors duration-300">Client Success Rate</div>
             </div>
             <div
               className="animate-fade-in-up hover:scale-110 transition-all duration-500 cursor-pointer"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="text-4xl font-bold mb-2 text-blue-400 animate-pulse-gentle">24hr</div>
-              <div className="text-slate-200 hover:text-white transition-colors duration-300">
+              <div className="text-4xl font-bold mb-2 text-amber-400 animate-pulse-gentle">24hr</div>
+              <div className="text-amber-100 hover:text-white transition-colors duration-300">
                 Average Time to Funding
               </div>
             </div>
@@ -407,8 +427,8 @@ export default function HarvestLendingPage() {
               className="animate-fade-in-up hover:scale-110 transition-all duration-500 cursor-pointer"
               style={{ animationDelay: "0.4s" }}
             >
-              <div className="text-4xl font-bold mb-2 animate-number-count text-blue-400">{counters.funded}M+</div>
-              <div className="text-slate-200 hover:text-white transition-colors duration-300">
+              <div className="text-4xl font-bold mb-2 animate-number-count text-amber-400">{counters.funded}M+</div>
+              <div className="text-amber-100 hover:text-white transition-colors duration-300">
                 Total Capital Secured
               </div>
             </div>
@@ -459,28 +479,28 @@ export default function HarvestLendingPage() {
                 title: "Too Fast for the System",
                 description: "You're scaling fast but banks move at the speed of paperwork",
                 index: 3,
-                color: "blue-500",
+                color: "amber-500",
               },
             ].map(({ icon: Icon, title, description, index, color }) => (
               <Card
                 key={index}
-                className={`bg-white border-gray-200 hover:shadow-2xl transition-all duration-700 cursor-pointer transform hover:-translate-y-4 hover:rotate-2 hover:scale-105 animate-fade-in-up ${hoveredCard === index ? `border-${color} shadow-xl` : ""}`}
+                className={`bg-white border-stone-200 hover:shadow-2xl transition-all duration-700 cursor-pointer transform hover:-translate-y-4 hover:rotate-2 hover:scale-105 animate-fade-in-up ${hoveredCard === index ? `border-${color} shadow-xl` : ""}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 <CardHeader className="bg-white">
                   <div
-                    className={`w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4 transition-all duration-500 ${hoveredCard === index ? "bg-slate-200 scale-125 rotate-45 animate-wiggle" : ""}`}
+                    className={`w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4 transition-all duration-500 ${hoveredCard === index ? "bg-amber-200 scale-125 rotate-45 animate-wiggle" : ""}`}
                   >
                     <Icon
                       className={`h-6 w-6 text-${color} transition-all duration-500 ${hoveredCard === index ? "scale-125 animate-spin-slow" : ""}`}
                     />
                   </div>
-                  <CardTitle className="font-[family-name:var(--font-montserrat)] text-black hover:text-blue-600 transition-colors duration-300 bg-white">
+                  <CardTitle className="font-[family-name:var(--font-montserrat)] text-black hover:text-amber-600 transition-colors duration-300 bg-white">
                     {title}
                   </CardTitle>
-                  <CardDescription className="font-[family-name:var(--font-open-sans)] text-black hover:text-gray-800 transition-colors duration-300 bg-white">
+                  <CardDescription className="font-[family-name:var(--font-open-sans)] text-black hover:text-stone-800 transition-colors duration-300 bg-white">
                     {description}
                   </CardDescription>
                 </CardHeader>
@@ -490,131 +510,382 @@ export default function HarvestLendingPage() {
         </div>
       </section>
 
-      <section id="services" className="py-16 bg-slate-50">
+      <section id="services" className="pt-16 pb-6 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+            <div>
+              <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-stone-800 mb-4">
+                Comprehensive Business Funding Solutions
+              </h3>
+              <div className="space-y-2 text-stone-600 font-[family-name:var(--font-open-sans)] max-w-2xl">
+                <p>Explore the right funding solution for your business needs.</p>
+                <p>
+                  These are the different programs we offer — if you don't qualify now, our commitment is to get YOU in
+                  position to qualify.
+                </p>
+                <p>
+                  We will assist you in getting Capital today, aid in Credit and Cost Reducing Strategies, and how to
+                  build from where You are Today to Where you Want to Be.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2 lg:justify-end lg:max-w-xs shrink-0">
+              {[
+                { icon: Shield, label: "Trusted lender network" },
+                { icon: Zap, label: "Fast approvals" },
+                { icon: Award, label: "Competitive funding options" },
+              ].map(({ icon: Icon, label }, i) => (
+                <span
+                  key={i}
+                  className="inline-flex items-center gap-2 rounded-full bg-amber-100 text-stone-700 text-xs font-medium px-3 py-1.5"
+                >
+                  <Icon className="h-4 w-4 text-amber-600" />
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-amber-200 bg-amber-50 px-6 py-4 mb-8">
+            <p className="text-sm text-stone-700 font-[family-name:var(--font-open-sans)]">
+              <span className="font-bold text-stone-800">Don't qualify yet? We've got a plan.</span> Get funded today,
+              then we'll help you build credit and graduate to SBA-level rates.
+            </p>
+            <a
+              href="/credit/credit-guidance"
+              className="text-amber-700 font-semibold whitespace-nowrap inline-flex items-center gap-1 hover:gap-2 transition-all"
+            >
+              Explore credit guidance <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                icon: Landmark,
+                title: "SBA Loans",
+                description: "Government-backed financing with the lowest rates available.",
+                bestFor: "Working capital, Expansion / growth",
+                funding: "$5M",
+                terms: "5–25 years",
+                href: "/funding/sba-loans",
+              },
+              {
+                icon: Briefcase,
+                title: "Equipment Financing",
+                description: "Up to 100% financing for the equipment you need.",
+                bestFor: "Equipment",
+                funding: "$1M",
+                terms: "2–7 years",
+                href: "/funding/equipment-financing",
+              },
+              {
+                icon: CreditCard,
+                title: "Merchant Cash Advance",
+                description: "Same-day funding tied to your daily sales.",
+                bestFor: "Working capital, Inventory",
+                funding: "$500K",
+                terms: "3–18 months",
+                href: "/funding/merchant-cash-advance",
+              },
+              {
+                icon: FileText,
+                title: "Business Line of Credit",
+                description: "Revolving capital you can draw on whenever you need it.",
+                bestFor: "Working capital, Inventory",
+                funding: "$500K",
+                terms: "Revolving",
+                href: "/funding/business-line-of-credit",
+              },
+              {
+                icon: BarChart3,
+                title: "Term Loans",
+                description: "Lump-sum funding with predictable monthly payments.",
+                bestFor: "Working capital, Expansion / growth",
+                funding: "$2M",
+                terms: "1–7 years",
+                href: "/funding/term-loans",
+              },
+              {
+                icon: Building2,
+                title: "Real Estate Financing",
+                description: "Commercial and residential mortgage solutions.",
+                bestFor: "Real estate, Refinance debt",
+                funding: "$10M",
+                terms: "5–30 years",
+                href: "/funding/real-estate-financing",
+              },
+            ].map(({ icon: Icon, title, description, bestFor, funding, terms, href }, index) => (
+              <div
+                key={index}
+                className="rounded-xl border border-stone-200 bg-white p-4 hover:shadow-md hover:border-amber-200 transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center"
+              >
+                <div className="lg:col-span-4 flex items-start gap-4">
+                  <div className="w-11 h-11 flex-shrink-0 bg-amber-100 rounded-lg flex items-center justify-center">
+                    <Icon className="h-5 w-5 text-amber-700" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-stone-800 font-[family-name:var(--font-montserrat)]">{title}</h4>
+                    <p className="text-xs text-stone-500 font-[family-name:var(--font-open-sans)]">{description}</p>
+                  </div>
+                </div>
+                <div className="lg:col-span-3">
+                  <div className="flex items-center gap-1.5 text-xs text-stone-500 mb-0.5">
+                    <Target className="h-3.5 w-3.5" /> Best for
+                  </div>
+                  <div className="text-sm font-semibold text-stone-800">{bestFor}</div>
+                </div>
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-1.5 text-xs text-stone-500 mb-0.5">
+                    <DollarSign className="h-3.5 w-3.5" /> Funding up to
+                  </div>
+                  <div className="text-sm font-semibold text-stone-800">{funding}</div>
+                </div>
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-1.5 text-xs text-stone-500 mb-0.5">
+                    <Clock className="h-3.5 w-3.5" /> Terms
+                  </div>
+                  <div className="text-sm font-semibold text-stone-800">{terms}</div>
+                </div>
+                <div className="lg:col-span-1 lg:text-right">
+                  <a
+                    href={href || "/contact"}
+                    className="text-amber-700 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all whitespace-nowrap"
+                  >
+                    Details <ArrowRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-2xl bg-amber-900 px-8 py-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold font-[family-name:var(--font-montserrat)] text-white mb-2">
+                Ready to get funded?
+              </h3>
+              <p className="text-amber-100 font-[family-name:var(--font-open-sans)]">
+                Start a single application and our team will match you with the right offers.
+              </p>
+            </div>
+            <a
+              href="https://application.croccrm.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
+            >
+              <Button
+                size="lg"
+                className="bg-amber-600 hover:bg-amber-500 text-white font-semibold hover:scale-105 transition-all duration-300 group shadow-lg"
+              >
+                Apply Now
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-6 pb-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-gray-800 mb-4">
-              Transform Your Business With Our Proven System
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-stone-800 mb-4">
+              Secure the Funding. Harvest the Growth.
             </h3>
-            <p className="text-gray-600 font-[family-name:var(--font-open-sans)] max-w-2xl mx-auto">
-              We fund businesses banks won't touch. If you're earning, you're eligible.
+            <p className="text-stone-500 font-[family-name:var(--font-open-sans)] mb-4">
+              Get the money you need today — and we'll help you build toward the best rates tomorrow.{" "}
+              <span className="font-semibold text-stone-800">Don't qualify for SBA yet? We'll get you there.</span>
+            </p>
+            <p className="text-stone-500 font-[family-name:var(--font-open-sans)]">
+              We work with business owners and excel at our core mission -{" "}
+              <span className="font-semibold text-stone-800">
+                "How do we get you the funding you need today while aiding in getting your business the type of capital it
+                wants to access long term"
+              </span>
+              . A true partnership in business success.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-4 max-w-6xl mx-auto">
             {[
-              {
-                icon: CheckCircle,
-                title: "Low Credit? No Problem",
-                description: "We fund businesses banks won't touch. If you're earning, you're eligible.",
-                index: 0,
-                color: "blue-500",
-              },
-              {
-                icon: Clock,
-                title: "Fast Turnaround Times",
-                description: "Receive funding in as little as 24 hours. Because opportunity doesn't wait.",
-                index: 1,
-                color: "blue-600",
-              },
               {
                 icon: DollarSign,
-                title: "Revenue-Based Funding",
-                description: "Get approved based on your daily sales not your credit score or paperwork pile.",
-                index: 2,
-                color: "blue-700",
-              },
-              {
-                icon: Users,
-                title: "Flexible Repayment Options",
-                description: "Reasonable payback through the system, no pressure.",
-                index: 3,
-                color: "blue-800",
-              },
-            ].map(({ icon: Icon, title, description, index, color }) => (
-              <Card
-                key={index}
-                className={`border-gray-200 hover:shadow-xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2 hover:rotate-1 ${hoveredCard === index ? `border-${color} shadow-lg` : ""}`}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-              >
-                <CardHeader>
-                  <div
-                    className={`w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 transition-all duration-300 ${hoveredCard === index ? "bg-blue-200 scale-110 rotate-12" : ""}`}
-                  >
-                    <Icon
-                      className={`h-6 w-6 text-${color} transition-all duration-300 ${hoveredCard === index ? "scale-110" : ""}`}
-                    />
-                  </div>
-                  <CardTitle className="font-[family-name:var(--font-montserrat)] text-gray-800">{title}</CardTitle>
-                  <CardDescription className="font-[family-name:var(--font-open-sans)] text-gray-600">
-                    {description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-gray-800 mb-4">
-              Comprehensive Business Funding Solutions
-            </h3>
-            <p className="text-gray-600 font-[family-name:var(--font-open-sans)] max-w-2xl mx-auto">
-              Whether you're expanding, overcoming cash flow gaps, or recovering from a bank denial, We have the
-              expertise and capital to move your business forward.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Shield, title: "SBA Funding", rate: "Low rates", amount: "Long terms", color: "blue-500" },
-              {
-                icon: Globe,
-                title: "Equipment Financing",
-                rate: "Flexible",
-                amount: "New machinery",
-                color: "blue-600",
+                title: "Get funded now",
+                description:
+                  "Access working capital fast — even with less-than-perfect credit — through MCAs, lines of credit, and term loans.",
+                color: "bg-amber-500",
               },
               {
                 icon: TrendingUp,
-                title: "Merchant Cash Advance",
-                rate: "Immediate",
-                amount: "Working capital",
-                color: "blue-700",
+                title: "Credit Strategies & Cutting cost",
+                description: "Our credit guidance is here to help roadmap a way to great scores.",
+                color: "bg-amber-600",
               },
-              { icon: Zap, title: "Business Growth", rate: "Revenue", amount: "Up to $500K", color: "blue-800" },
-            ].map(({ icon: Icon, title, rate, amount, color }, index) => (
-              <Card
-                key={index}
-                className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105 bg-white border-blue-200"
-              >
-                <CardContent className="pt-6">
+              {
+                icon: CreditCard,
+                title: "Strengthen your business",
+                description: "Add credit card processing to grow revenue history and build business credit.",
+                color: "bg-amber-700",
+              },
+              {
+                icon: Landmark,
+                title: "Graduate to SBA",
+                description: "Qualify for the lowest-cost, longest-term SBA financing once you're ready.",
+                color: "bg-amber-800",
+              },
+            ].map(({ icon: Icon, title, description, color }, i, arr) => (
+              <Fragment key={i}>
+                <div className="lg:flex-1 flex flex-col items-center">
                   <div
-                    className={`w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:bg-blue-200`}
+                    className={`w-9 h-9 rounded-full ${color} text-white font-bold flex items-center justify-center mb-4 shadow`}
                   >
-                    <Icon className={`h-8 w-8 text-${color}`} />
+                    {i + 1}
                   </div>
-                  <h4 className="font-bold text-gray-800 mb-2">{title}</h4>
-                  <div className="text-lg font-bold text-blue-600 mb-1">{rate}</div>
-                  <div className="text-sm text-gray-500">{amount}</div>
-                </CardContent>
-              </Card>
+                  <div className="w-full flex-1 rounded-2xl border border-stone-200 bg-white p-6 text-center hover:shadow-md hover:border-amber-200 transition-all duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mx-auto mb-4">
+                      <Icon className="h-6 w-6 text-amber-700" />
+                    </div>
+                    <h4 className="font-bold text-stone-800 mb-2 font-[family-name:var(--font-montserrat)]">{title}</h4>
+                    <p className="text-sm text-stone-500 font-[family-name:var(--font-open-sans)] leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="hidden lg:flex items-center pt-12">
+                    <ArrowRight className="h-5 w-5 text-stone-300" />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="testimonials" className="py-16 bg-slate-50">
+      {/* Credit Analysis */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="mb-10">
+            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-stone-800 mb-3">
+              Credit Analysis
+            </h3>
+            <p className="text-stone-500 font-[family-name:var(--font-open-sans)]">
+              Strengthen your credit profile to unlock better rates and more funding options.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: FileSearch,
+                title: "Credit Report",
+                description: "Pull and understand your full credit report so you know exactly where your business stands.",
+                href: "/credit/credit-report",
+              },
+              {
+                icon: Wrench,
+                title: "Credit Guidance",
+                description: "Work with specialists to dispute inaccuracies and rebuild your business and personal credit.",
+                href: "/credit/credit-guidance",
+              },
+              {
+                icon: CreditCard,
+                title: "Credit Cards",
+                description: "Explore business credit card options to manage cash flow, earn rewards, and build credit.",
+                href: "/credit/credit-cards",
+              },
+            ].map(({ icon: Icon, title, description, href }, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-stone-200 bg-white p-6 hover:shadow-md hover:border-amber-200 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-5">
+                  <Icon className="h-6 w-6 text-amber-700" />
+                </div>
+                <h4 className="font-bold text-stone-800 mb-2 font-[family-name:var(--font-montserrat)]">{title}</h4>
+                <p className="text-sm text-stone-500 font-[family-name:var(--font-open-sans)] leading-relaxed mb-5">
+                  {description}
+                </p>
+                <a
+                  href={href}
+                  className="text-amber-700 font-semibold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
+                >
+                  Learn more <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How Funding Works */}
+      <section className="py-16 bg-gradient-to-b from-white to-amber-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-stone-800 mb-3">
+              How Funding Works
+            </h3>
+            <p className="text-stone-500 font-[family-name:var(--font-open-sans)]">
+              A simple, transparent process to help you get funded faster.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-4 max-w-6xl mx-auto">
+            {[
+              {
+                icon: ClipboardCheck,
+                title: "Pre-Qualify",
+                description: "Answer a few questions about your business.",
+                color: "bg-amber-500",
+              },
+              {
+                icon: Users,
+                title: "Expert Review",
+                description: "Our experts review your profile and help you secure the maximum funding.",
+                color: "bg-amber-600",
+              },
+              {
+                icon: BarChart3,
+                title: "Discuss Roadmap",
+                description: "Review rates, terms, and funding timelines.",
+                color: "bg-amber-700",
+              },
+              {
+                icon: Landmark,
+                title: "Apply & Get Funded",
+                description: "Choose the best option and complete your application.",
+                color: "bg-amber-800",
+              },
+            ].map(({ icon: Icon, title, description, color }, i, arr) => (
+              <div key={i} className="relative flex flex-col items-center text-center">
+                {i < arr.length - 1 && (
+                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-amber-200" />
+                )}
+                <div className="relative z-10 mb-5">
+                  <div className={`w-16 h-16 rounded-full ${color} flex items-center justify-center shadow-lg`}>
+                    <Icon className="h-7 w-7 text-white" />
+                  </div>
+                  <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-white text-stone-800 text-xs font-bold flex items-center justify-center shadow border border-stone-100">
+                    {i + 1}
+                  </span>
+                </div>
+                <h4 className="font-bold text-stone-800 mb-2 font-[family-name:var(--font-montserrat)]">{title}</h4>
+                <p className="text-sm text-stone-500 font-[family-name:var(--font-open-sans)] max-w-[14rem] leading-relaxed">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-16 bg-amber-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-gray-800 mb-4">
+            <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-stone-800 mb-4">
               Real People, Real Results, Real Transformations
             </h3>
-            <p className="text-gray-600 font-[family-name:var(--font-open-sans)]">
+            <p className="text-stone-600 font-[family-name:var(--font-open-sans)]">
               See how our clients have achieved remarkable business breakthroughs and life-changing results.
             </p>
           </div>
@@ -642,7 +913,7 @@ export default function HarvestLendingPage() {
             ].map((testimonial, index) => (
               <Card
                 key={index}
-                className="bg-white hover:shadow-lg transition-all duration-500 hover:-translate-y-1 hover:rotate-1 animate-fade-in-up border-blue-200"
+                className="bg-white hover:shadow-lg transition-all duration-500 hover:-translate-y-1 hover:rotate-1 animate-fade-in-up border-amber-200"
                 style={{ animationDelay: testimonial.delay }}
               >
                 <CardContent className="pt-6">
@@ -650,16 +921,16 @@ export default function HarvestLendingPage() {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className="h-4 w-4 fill-blue-500 text-blue-500 animate-pulse"
+                        className="h-4 w-4 fill-amber-500 text-amber-500 animate-pulse"
                         style={{ animationDelay: `${i * 0.1}s` }}
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 font-[family-name:var(--font-open-sans)] mb-4">"{testimonial.text}"</p>
-                  <div className="font-semibold font-[family-name:var(--font-montserrat)] text-gray-800">
+                  <p className="text-stone-600 font-[family-name:var(--font-open-sans)] mb-4">"{testimonial.text}"</p>
+                  <div className="font-semibold font-[family-name:var(--font-montserrat)] text-stone-800">
                     {testimonial.name}
                   </div>
-                  <div className="text-sm text-blue-600">{testimonial.role}</div>
+                  <div className="text-sm text-amber-600">{testimonial.role}</div>
                 </CardContent>
               </Card>
             ))}
@@ -667,14 +938,14 @@ export default function HarvestLendingPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section id="about" className="py-16 bg-gradient-to-br from-amber-50 to-yellow-100">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold font-[family-name:var(--font-montserrat)] text-black mb-4 animate-fade-in-up hover:scale-105 transition-all duration-300">
               Meet Your Business Catalyst
             </h3>
             <p
-              className="text-gray-900 font-[family-name:var(--font-open-sans)] max-w-2xl mx-auto animate-fade-in-up"
+              className="text-stone-900 font-[family-name:var(--font-open-sans)] max-w-2xl mx-auto animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               Hi, I'm Thomas Chillemi - Your Business Transformation Expert
@@ -682,7 +953,7 @@ export default function HarvestLendingPage() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className="bg-white shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:rotate-1 border-blue-200 overflow-hidden animate-fade-in-up group">
+            <Card className="bg-white shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 hover:rotate-1 border-amber-200 overflow-hidden animate-fade-in-up group">
               <CardContent className="p-8">
                 <div className="flex flex-col lg:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
@@ -698,54 +969,49 @@ export default function HarvestLendingPage() {
                   </div>
 
                   <div className="flex-1 text-center lg:text-left">
-                    <h4 className="text-2xl font-bold font-[family-name:var(--font-montserrat)] text-gray-800 mb-2 hover:text-blue-600 transition-colors duration-300">
+                    <h4 className="text-2xl font-bold font-[family-name:var(--font-montserrat)] text-stone-800 mb-2 hover:text-amber-600 transition-colors duration-300">
                       Thomas Chillemi
                     </h4>
-                    <div className="text-blue-600 font-semibold mb-4 flex items-center justify-center lg:justify-start gap-2 hover:scale-105 transition-all duration-300">
+                    <div className="text-amber-600 font-semibold mb-4 flex items-center justify-center lg:justify-start gap-2 hover:scale-105 transition-all duration-300">
                       <TrendingUp className="h-5 w-5 animate-wiggle" />
                       Business Development Executive
                     </div>
 
-                    <p className="text-gray-600 font-[family-name:var(--font-open-sans)] mb-6 leading-relaxed hover:text-gray-700 transition-colors duration-300">
+                    <p className="text-stone-600 font-[family-name:var(--font-open-sans)] mb-6 leading-relaxed hover:text-stone-700 transition-colors duration-300">
                       With over 15 years of experience in small business funding and financial strategy, I've helped
                       over 1,000 entrepreneurs secure fast, flexible capital to grow, recover, and scale. Our mission is
                       simple: To help you access the funding you deserve without the delays, denials, or red tape.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                      <div className="bg-blue-50 p-4 rounded-lg text-center hover:bg-blue-100 hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer animate-fade-in-up">
-                        <div className="text-2xl font-bold text-blue-600 mb-1 animate-number-count">1,000+</div>
-                        <div className="text-sm text-gray-600">Clients Served</div>
+                      <div className="bg-amber-50 p-4 rounded-lg text-center hover:bg-amber-100 hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer animate-fade-in-up">
+                        <div className="text-2xl font-bold text-amber-600 mb-1 animate-number-count">1,000+</div>
+                        <div className="text-sm text-stone-600">Clients Served</div>
                       </div>
                       <div
-                        className="bg-blue-50 p-4 rounded-lg text-center hover:bg-blue-100 hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer animate-fade-in-up"
+                        className="bg-amber-50 p-4 rounded-lg text-center hover:bg-amber-100 hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer animate-fade-in-up"
                         style={{ animationDelay: "0.1s" }}
                       >
-                        <div className="text-2xl font-bold text-blue-600 mb-1 animate-number-count">$50M+</div>
-                        <div className="text-sm text-gray-600">Funded</div>
+                        <div className="text-2xl font-bold text-amber-600 mb-1 animate-number-count">$50M+</div>
+                        <div className="text-sm text-stone-600">Funded</div>
                       </div>
                       <div
-                        className="bg-blue-50 p-4 rounded-lg text-center hover:bg-blue-100 hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer animate-fade-in-up"
+                        className="bg-amber-50 p-4 rounded-lg text-center hover:bg-amber-100 hover:scale-110 hover:rotate-2 transition-all duration-500 cursor-pointer animate-fade-in-up"
                         style={{ animationDelay: "0.2s" }}
                       >
-                        <div className="text-2xl font-bold text-blue-600 mb-1 animate-number-count">95%</div>
-                        <div className="text-sm text-gray-600">Success Rate</div>
+                        <div className="text-2xl font-bold text-amber-600 mb-1 animate-number-count">95%</div>
+                        <div className="text-sm text-stone-600">Success Rate</div>
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-                      <Button className="bg-blue-600 hover:bg-blue-500 text-white hover:scale-110 hover:rotate-1 transition-all duration-300 group shadow-lg hover:shadow-xl">
-                        <Mail className="mr-2 h-4 w-4 animate-wiggle" />
-                        Contact Thomas
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 group-hover:scale-125 transition-transform duration-300" />
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white hover:scale-110 hover:rotate-1 transition-all duration-300 bg-transparent shadow-lg hover:shadow-xl"
-                      >
-                        <Phone className="mr-2 h-4 w-4 animate-wiggle" />
-                        Schedule Meeting
-                      </Button>
+                    <div className="flex justify-center lg:justify-start">
+                      <a href="/contact">
+                        <Button className="bg-amber-600 hover:bg-amber-500 text-white hover:scale-110 hover:rotate-1 transition-all duration-300 group shadow-lg hover:shadow-xl">
+                          <Mail className="mr-2 h-4 w-4 animate-wiggle" />
+                          Contact Us
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 group-hover:scale-125 transition-transform duration-300" />
+                        </Button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -755,19 +1021,19 @@ export default function HarvestLendingPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-800 text-white relative overflow-hidden">
+      <section className="py-16 bg-amber-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-amber-900 via-amber-800 to-amber-900"></div>
           <div
-            className="absolute top-10 right-10 w-24 h-24 bg-blue-400/20 rounded-full animate-bounce"
+            className="absolute top-10 right-10 w-24 h-24 bg-amber-400/20 rounded-full animate-bounce"
             style={{ animationDuration: "4s" }}
           ></div>
-          <div className="absolute bottom-10 left-10 w-16 h-16 bg-blue-500/20 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-10 left-10 w-16 h-16 bg-amber-500/20 rounded-full animate-pulse"></div>
           <div className="absolute top-1/2 left-1/4 animate-float">
-            <CheckCircle className="h-6 w-6 text-blue-300/30" />
+            <CheckCircle className="h-6 w-6 text-amber-300/30" />
           </div>
           <div className="absolute bottom-1/4 right-1/4 animate-float" style={{ animationDelay: "2s" }}>
-            <Star className="h-8 w-8 text-blue-400/20" />
+            <Star className="h-8 w-8 text-amber-400/20" />
           </div>
         </div>
 
@@ -786,150 +1052,32 @@ export default function HarvestLendingPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <Button
-              size="lg"
-              className="bg-blue-600 hover:bg-blue-500 text-white font-semibold hover:scale-105 transition-all duration-300 group shadow-lg hover:shadow-xl"
-            >
-              Start Your Application
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-slate-800 bg-transparent hover:scale-105 transition-all duration-300 group"
-            >
-              <Phone className="h-4 w-4 mr-2" />
-              Speak with an Expert
-            </Button>
+            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-amber-600 hover:bg-amber-500 text-white font-semibold hover:scale-105 transition-all duration-300 group shadow-lg hover:shadow-xl"
+              >
+                Start Your Application
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+            </a>
+            <a href="tel:+13478317014">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-amber-900 bg-transparent hover:scale-105 transition-all duration-300 group"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                <span className="group-hover:hidden">Speak with an Expert</span>
+                <span className="hidden group-hover:inline">+1 347-831-7014</span>
+              </Button>
+            </a>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <Image
-                  src="/images/harvest-logo.png"
-                  alt="Harvest Lending Logo"
-                  width={32}
-                  height={32}
-                  className="rounded-lg animate-pulse"
-                />
-                <h4 className="text-lg font-bold font-[family-name:var(--font-montserrat)]">Harvest Lending</h4>
-              </div>
-              <p className="text-gray-300 font-[family-name:var(--font-open-sans)] text-sm mb-4">
-                Your trusted partner for business funding solutions. Empowering entrepreneurs since 2015 with fast,
-                flexible capital.
-              </p>
-              <div className="flex space-x-4">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="hover:scale-105 transition-all duration-300 bg-transparent border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white"
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call Us
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="hover:scale-105 transition-all duration-300 bg-transparent border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white"
-                >
-                  <Mail className="h-4 w-4 mr-2" />
-                  Email
-                </Button>
-              </div>
-            </div>
-
-            <div>
-              <h5 className="font-semibold font-[family-name:var(--font-montserrat)] mb-3 text-blue-400">Services</h5>
-              <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    SBA Funding
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Equipment Financing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Merchant Cash Advance
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Business Growth
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h5 className="font-semibold font-[family-name:var(--font-montserrat)] mb-3 text-blue-400">Company</h5>
-              <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Press
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h5 className="font-semibold font-[family-name:var(--font-montserrat)] mb-3 text-blue-400">Legal</h5>
-              <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Terms of Service
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Compliance
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
-                    Licensing
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-            <p className="text-gray-400 text-sm font-[family-name:var(--font-open-sans)]">
-              © 2024 Harvest Lending. All rights reserved. NMLS ID: 123456 | Equal Housing Lender
-            </p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <style jsx>{`
         @keyframes float {
