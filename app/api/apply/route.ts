@@ -56,17 +56,46 @@ export async function POST(req: Request) {
       cache: "no-store",
     })
 
+    const text = await res.text()
+
     if (!res.ok) {
+      console.error("[apply] webhook HTTP", res.status, text.slice(0, 500))
       return NextResponse.json(
-        { ok: false, error: "Could not save your application. Please try again." },
+        {
+          ok: false,
+          error: "Could not save your application. Please try again.",
+          detail: `Google returned HTTP ${res.status}`,
+        },
         { status: 502 },
       )
     }
 
-    const result = await res.json().catch(() => null)
-    if (result && result.ok === false) {
+    let result: { ok?: boolean; error?: string } | null = null
+    try {
+      result = JSON.parse(text)
+    } catch {
+      // A login page instead of JSON means the web app is not deployed with
+      // "Who has access: Anyone", so the POST never reached doPost.
+      console.error("[apply] webhook returned non-JSON:", text.slice(0, 500))
       return NextResponse.json(
-        { ok: false, error: "Could not save your application. Please try again." },
+        {
+          ok: false,
+          error: "Could not save your application. Please try again.",
+          detail:
+            "Google returned a page instead of JSON - redeploy the Apps Script web app with access set to Anyone.",
+        },
+        { status: 502 },
+      )
+    }
+
+    if (!result || result.ok !== true) {
+      console.error("[apply] webhook rejected:", text.slice(0, 500))
+      return NextResponse.json(
+        {
+          ok: false,
+          error: "Could not save your application. Please try again.",
+          detail: result?.error || "Apps Script did not confirm the write.",
+        },
         { status: 502 },
       )
     }
