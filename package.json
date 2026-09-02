@@ -82,5 +82,8 @@
       "@tailwindcss/oxide",
       "esbuild"
     ]
+  },
+  "engines": {
+    "node": ">=20 <23"
   }
 }
