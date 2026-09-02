@@ -76,13 +76,19 @@ export async function POST(req: Request) {
     } catch {
       // A login page instead of JSON means the web app is not deployed with
       // "Who has access: Anyone", so the POST never reached doPost.
-      console.error("[apply] webhook returned non-JSON:", text.slice(0, 500))
+      console.error("[apply] webhook returned non-JSON:", text.slice(0, 1000))
+      // Surface a snippet so the cause is visible without reading server logs.
+      // Google's HTML carries no secrets - the request body is never echoed.
+      const snippet = text
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 300)
       return NextResponse.json(
         {
           ok: false,
           error: "Could not save your application. Please try again.",
-          detail:
-            "Google returned a page instead of JSON - redeploy the Apps Script web app with access set to Anyone.",
+          detail: `Google returned a page instead of JSON. Body: ${snippet}`,
         },
         { status: 502 },
       )
