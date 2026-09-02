@@ -13,6 +13,14 @@
  *    server.
  *
  * Re-deploy (Manage deployments > edit > new version) after any edit here.
+ * Editing an existing deployment keeps its /exec URL; "New deployment" mints a
+ * new URL and leaves the old one serving the old code.
+ *
+ * Leave SECRET as CHANGE_ME in this file. It is a template - this repo is
+ * public, and the deployed web app is reachable by anyone, so this value is the
+ * only thing guarding writes to the sheet. Set the real secret in two places
+ * only: the Apps Script editor attached to the sheet, and the
+ * GOOGLE_SHEETS_WEBHOOK_SECRET environment variable.
  */
 
 var SECRET = 'CHANGE_ME'
