@@ -6,6 +6,7 @@ import { Montserrat } from "next/font/google"
 import { Open_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { MetaPixel } from "@/components/meta-pixel"
 import "./globals.css"
 
 const montserrat = Montserrat({
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body
         className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${montserrat.variable} ${openSans.variable}`}
       >
+        <MetaPixel />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
