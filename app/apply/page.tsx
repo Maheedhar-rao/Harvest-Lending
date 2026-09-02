@@ -137,16 +137,23 @@ export default function ApplyPage() {
       <header className="bg-[#79401c]">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row">
           <div className="flex items-center gap-3">
+            {/* Just the mark from the brand logo - its embedded wordmark is
+                illegible at header size and duplicates the name beside it. */}
             <Image
-              src="/apply/harvest-lending-montserrat.png"
+              src="/apply/harvest-mark.png"
               alt="Harvest Lending"
-              width={220}
-              height={28}
+              width={246}
+              height={246}
               priority
-              className="h-6 w-auto"
+              className="h-12 w-12 object-contain"
             />
-            <span className="hidden text-sm font-semibold text-amber-100/80 sm:inline">
-              Harvest the Power of Lending
+            <span className="leading-tight">
+              <span className="block font-[family-name:var(--font-montserrat)] text-xl font-black text-white">
+                Harvest Lending
+              </span>
+              <span className="hidden text-sm font-semibold text-amber-100/80 sm:block">
+                Harvest the Power of Lending
+              </span>
             </span>
           </div>
           <a href={PHONE_HREF} className="flex items-center gap-3 text-right text-white">
