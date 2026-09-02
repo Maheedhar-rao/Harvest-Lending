@@ -2,7 +2,16 @@ import { Button } from "@/components/ui/button"
 import { Phone, Mail } from "lucide-react"
 import Image from "next/image"
 
-export function SiteFooter({ linkBase = "" }: { linkBase?: string }) {
+export function SiteFooter({
+  linkBase = "",
+  staticHref,
+}: {
+  linkBase?: string
+  // When set, every internal footer link points here instead of navigating
+  // away, making the footer static on a standalone landing page.
+  staticHref?: string
+}) {
+  const nav = (path: string) => staticHref ?? `${linkBase}${path}`
   return (
     <footer id="contact" className="bg-stone-900 text-white py-12">
       <div className="container mx-auto px-4">
@@ -52,32 +61,32 @@ export function SiteFooter({ linkBase = "" }: { linkBase?: string }) {
             <h5 className="font-semibold font-[family-name:var(--font-montserrat)] mb-3 text-amber-400">Funding</h5>
             <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
               <li>
-                <a href={`${linkBase}/funding/sba-loans`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/funding/sba-loans")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   SBA Loans
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/funding/equipment-financing`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/funding/equipment-financing")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Equipment Financing
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/funding/merchant-cash-advance`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/funding/merchant-cash-advance")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Merchant Cash Advance
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/funding/business-line-of-credit`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/funding/business-line-of-credit")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Business Line of Credit
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/funding/term-loans`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/funding/term-loans")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Term Loans
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/funding/real-estate-financing`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/funding/real-estate-financing")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Real Estate Financing
                 </a>
               </li>
@@ -90,17 +99,17 @@ export function SiteFooter({ linkBase = "" }: { linkBase?: string }) {
             </h5>
             <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
               <li>
-                <a href={`${linkBase}/credit/credit-report`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/credit/credit-report")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Credit Report
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/credit/credit-guidance`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/credit/credit-guidance")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Credit Guidance
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/credit/credit-cards`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/credit/credit-cards")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Credit Card Processing
                 </a>
               </li>
@@ -111,7 +120,7 @@ export function SiteFooter({ linkBase = "" }: { linkBase?: string }) {
             <h5 className="font-semibold font-[family-name:var(--font-montserrat)] mb-3 text-amber-400">Company</h5>
             <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
               <li>
-                <a href={`${linkBase}/about`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/about")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   About Us
                 </a>
               </li>
@@ -122,7 +131,7 @@ export function SiteFooter({ linkBase = "" }: { linkBase?: string }) {
                 <span className="text-stone-300 cursor-default">Press</span>
               </li>
               <li>
-                <a href={`${linkBase}/contact`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/contact")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Contact
                 </a>
               </li>
@@ -133,12 +142,12 @@ export function SiteFooter({ linkBase = "" }: { linkBase?: string }) {
             <h5 className="font-semibold font-[family-name:var(--font-montserrat)] mb-3 text-amber-400">Legal</h5>
             <ul className="space-y-2 text-sm font-[family-name:var(--font-open-sans)]">
               <li>
-                <a href={`${linkBase}/privacy`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/privacy")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href={`${linkBase}/terms`} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
+                <a href={nav("/terms")} className="text-stone-300 hover:text-amber-400 transition-colors duration-300">
                   Terms of Service
                 </a>
               </li>

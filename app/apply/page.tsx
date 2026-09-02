@@ -18,10 +18,6 @@ import {
 import { SiteFooter } from "@/components/site-footer"
 import ApplyForm from "./apply-form"
 
-// On the apply-only deploy the rest of the site lives on another domain, so the
-// shared footer's links need to be absolute.
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || ""
-
 const PHONE_DISPLAY = "+1 347-831-7014"
 const PHONE_HREF = "tel:+13478317014"
 
@@ -438,7 +434,7 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <SiteFooter linkBase={SITE_URL} />
+      <SiteFooter staticHref="/apply" />
     </main>
   )
 }
