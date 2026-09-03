@@ -44,6 +44,7 @@ import Image from "next/image"
 import { SiteFooter } from "@/components/site-footer"
 import { FundingNav } from "@/components/funding-nav"
 import { CreditNav } from "@/components/credit-nav"
+import { APPLY_URL } from "@/lib/constants"
 
 export default function HarvestLendingPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -121,7 +122,7 @@ export default function HarvestLendingPage() {
               Harvest Lending
             </h1>
           </a>
-          <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer" className="md:hidden">
+          <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="md:hidden">
             <Button size="sm" className="bg-amber-600 hover:bg-amber-500 text-white font-semibold">
               Apply
             </Button>
@@ -152,7 +153,7 @@ export default function HarvestLendingPage() {
               Contact
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-300 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+            <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="secondary"
                 className="bg-amber-600 hover:bg-amber-500 text-white hover:scale-110 hover:rotate-2 transition-all duration-300 group shadow-lg hover:shadow-2xl animate-pulse-slow"
@@ -215,7 +216,7 @@ export default function HarvestLendingPage() {
           <div
             className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-1100 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+            <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="bg-amber-600 hover:bg-amber-500 text-white font-semibold hover:scale-110 hover:rotate-1 transition-all duration-300 group shadow-lg hover:shadow-2xl animate-pulse-gentle"
@@ -378,7 +379,7 @@ export default function HarvestLendingPage() {
                           ${calculatedRate.min.toLocaleString()} - ${calculatedRate.max.toLocaleString()}
                         </div>
                         <p className="text-sm text-stone-600 mb-4">Based on 100% to 150% of your monthly revenue</p>
-                        <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+                        <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
                           <Button
                             size="sm"
                             className="bg-amber-600 hover:bg-amber-500 text-white"
@@ -669,7 +670,7 @@ export default function HarvestLendingPage() {
               </p>
             </div>
             <a
-              href="https://application.croccrm.com/"
+              href={APPLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-shrink-0"
@@ -1052,7 +1053,7 @@ export default function HarvestLendingPage() {
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+            <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="bg-amber-600 hover:bg-amber-500 text-white font-semibold hover:scale-105 transition-all duration-300 group shadow-lg hover:shadow-xl"
