@@ -13,15 +13,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export default function SubmittedPage({
-  searchParams,
-}: {
-  searchParams: { status?: string }
-}) {
-  // Leads that fail the qualification rules still reach this URL so conversion
-  // tracking stays consistent; only the copy differs.
-  const needsReview = searchParams.status === "review"
-
+export default function SubmittedPage() {
   return (
     <main className="flex min-h-screen flex-col bg-[#fefadc] text-stone-900">
       <header className="bg-[#79401c]">
@@ -62,12 +54,12 @@ export default function SubmittedPage({
           <div className="rounded-3xl bg-[#79401c] p-8 text-center shadow-2xl sm:p-12">
             <CheckCircle2 className="mx-auto h-16 w-16 text-[#f4bc41]" aria-hidden="true" />
             <h1 className="mt-6 font-[family-name:var(--font-montserrat)] text-3xl font-extrabold text-white sm:text-4xl">
-              {needsReview ? "Thanks - we have your details." : "Your application is in."}
+              Your application is in.
             </h1>
             <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-amber-50/90">
-              {needsReview
-                ? "Based on your answers we need to take a closer look before we can move forward. A specialist will be in touch to talk through what is possible."
-                : "A funding specialist will reach out shortly to walk you through your options. Most clients hear back the same business day."}
+              A funding specialist will review your details and reach out shortly to
+              walk you through your options. Most clients hear back the same business
+              day.
             </p>
             <a
               href={PHONE_HREF}

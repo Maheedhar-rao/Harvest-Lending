@@ -140,7 +140,7 @@ export default function ApplyForm() {
         setSubmitting(false)
         return
       }
-      router.push(disqualified ? "/submitted?status=review" : "/submitted")
+      router.push("/submitted")
     } catch {
       setError("Something went wrong. Please try again.")
       setSubmitting(false)
