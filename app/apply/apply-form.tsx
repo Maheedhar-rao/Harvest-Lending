@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Lock, Loader2, CheckCircle2, PhoneCall } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { Lock, Loader2 } from "lucide-react"
 import {
   BANK_ACCOUNT_OPTIONS,
   CAPITAL_OPTIONS,
@@ -103,11 +104,11 @@ function Select({
 }
 
 export default function ApplyForm() {
+  const router = useRouter()
   const [step, setStep] = useState<1 | 2>(1)
   const [form, setForm] = useState<FormState>(EMPTY)
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
-  const [result, setResult] = useState<"qualified" | "review" | null>(null)
 
   const set = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setForm((f) => ({ ...f, [key]: value }))
@@ -139,36 +140,11 @@ export default function ApplyForm() {
         setSubmitting(false)
         return
       }
-      setResult(disqualified ? "review" : "qualified")
+      router.push(disqualified ? "/submitted?status=review" : "/submitted")
     } catch {
       setError("Something went wrong. Please try again.")
       setSubmitting(false)
     }
-  }
-
-  if (result) {
-    return (
-      <div className="rounded-3xl bg-[#79401c] p-8 text-center shadow-2xl sm:p-10">
-        <CheckCircle2 className="mx-auto h-14 w-14 text-[#f4bc41]" aria-hidden="true" />
-        <h2 className="mt-5 text-2xl font-extrabold text-white sm:text-3xl">
-          {result === "qualified"
-            ? "Your application is in."
-            : "Thanks — we have your details."}
-        </h2>
-        <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-amber-50/90">
-          {result === "qualified"
-            ? "A funding specialist will reach out shortly to walk you through your options. Most clients hear back the same business day."
-            : "Based on your answers we need to take a closer look before we can move forward. A specialist will be in touch to talk through what is possible."}
-        </p>
-        <a
-          href="tel:+13478317014"
-          className="mt-7 inline-flex items-center justify-center gap-2 rounded-lg bg-[#d3772c] px-7 py-3 text-[15px] font-bold text-white transition-colors hover:bg-[#be591c]"
-        >
-          <PhoneCall className="h-4 w-4" aria-hidden="true" />
-          Speak with an expert now
-        </a>
-      </div>
-    )
   }
 
   return (

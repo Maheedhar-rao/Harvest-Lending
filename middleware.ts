@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server"
 // Apply-only deploys (Railway) set APPLY_ONLY=true so the service exposes just
 // the funding application page. Everything else 404s. Unset elsewhere, so the
 // full site is unaffected.
-const ALLOWED_PREFIXES = ["/apply", "/api/apply", "/images/"]
+const ALLOWED_PREFIXES = ["/apply", "/submitted", "/api/apply", "/images/"]
 
 export function middleware(request: NextRequest) {
   if (process.env.APPLY_ONLY !== "true") return NextResponse.next()
