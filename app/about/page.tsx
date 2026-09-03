@@ -6,6 +6,7 @@ import Link from "next/link"
 import { SiteFooter } from "@/components/site-footer"
 import { FundingNav } from "@/components/funding-nav"
 import { CreditNav } from "@/components/credit-nav"
+import { APPLY_URL } from "@/lib/constants"
 
 export const metadata = {
   title: "About | Harvest Lending",
@@ -58,7 +59,7 @@ export default function AboutPage() {
               Harvest Lending
             </h1>
           </Link>
-          <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer" className="md:hidden">
+          <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="md:hidden">
             <Button size="sm" className="bg-amber-600 hover:bg-amber-500 text-white font-semibold">
               Apply
             </Button>
@@ -90,7 +91,7 @@ export default function AboutPage() {
             >
               Contact
             </Link>
-            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+            <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
               <Button
                 variant="secondary"
                 className="bg-amber-600 hover:bg-amber-500 text-white hover:scale-110 transition-all duration-300 group shadow-lg"

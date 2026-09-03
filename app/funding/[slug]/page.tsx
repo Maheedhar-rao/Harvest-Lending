@@ -7,6 +7,7 @@ import Link from "next/link"
 import { SiteFooter } from "@/components/site-footer"
 import { FundingNav } from "@/components/funding-nav"
 import { CreditNav } from "@/components/credit-nav"
+import { APPLY_URL } from "@/lib/constants"
 
 type Option = {
   icon: ElementType
@@ -155,7 +156,7 @@ export default function FundingDetailPage({ params }: { params: { slug: string }
               Harvest Lending
             </h1>
           </Link>
-          <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer" className="md:hidden">
+          <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="md:hidden">
             <Button size="sm" className="bg-amber-600 hover:bg-amber-500 text-white font-semibold">
               Apply
             </Button>
@@ -172,7 +173,7 @@ export default function FundingDetailPage({ params }: { params: { slug: string }
             <Link href="/contact" className="font-[family-name:var(--font-open-sans)] hover:text-amber-300 transition-all duration-300 hover:scale-110">
               Contact
             </Link>
-            <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer">
+            <a href={APPLY_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="secondary" className="bg-amber-600 hover:bg-amber-500 text-white hover:scale-110 transition-all duration-300 group shadow-lg">
                 Apply Now
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
@@ -240,7 +241,7 @@ export default function FundingDetailPage({ params }: { params: { slug: string }
             {/* Apply card */}
             <div className="rounded-2xl border border-stone-200 bg-white p-6 lg:sticky lg:top-24">
               <h3 className="font-bold text-stone-800 mb-4 font-[family-name:var(--font-montserrat)]">Apply</h3>
-              <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer" className="block">
+              <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="block">
                 <Button className="w-full bg-amber-600 hover:bg-amber-500 text-white font-semibold py-6 text-base group">
                   Apply Now
                   <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />

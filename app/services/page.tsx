@@ -24,8 +24,8 @@ import { useState } from "react"
 import { SiteFooter } from "@/components/site-footer"
 import { FundingNav } from "@/components/funding-nav"
 import { CreditNav } from "@/components/credit-nav"
+import { APPLY_URL } from "@/lib/constants"
 
-const APPLY_URL = "https://application.croccrm.com/"
 
 const PRODUCTS = [
   {
@@ -193,7 +193,7 @@ export default function ServicesPage() {
               Harvest Lending
             </h1>
           </Link>
-          <a href="https://application.croccrm.com/" target="_blank" rel="noopener noreferrer" className="md:hidden">
+          <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className="md:hidden">
             <Button size="sm" className="bg-amber-600 hover:bg-amber-500 text-white font-semibold">
               Apply
             </Button>
